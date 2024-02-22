@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD Complaint</title>
+    <link rel="stylesheet" href="../home/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="toggle-btn">&#x02190;</div>
+    <div id="sidebar">
+        <a href="../home/index.html">Home</a>
+        <a href="index.html">Add Complaint</a>
+        <a href="../complaint_status/index.html">Status</a>
+        <!-- <a href="#contact">Contact</a> -->
+    </div>
+    <div id="content">
+        <div class="container">
+            <h2>Case Registration Form</h2>
+            <form>
+                <div class="caseid-container">
+                    <label for="caseId">CASE ID</label>
+                    <input type="text" id="caseId" value="Auto-generated" disabled style="width: 150px;">
+                </div>
+                <div class="flex-container">
+                    <div>
+                        <label for="caseRegisteredDateTime">Date and Time of Case Registered:</label>
+                        <input type="text" id="caseRegisteredDateTime" value="Automatically Fetched" disabled>
+                    </div>
+                    <div>
+                        <label for="complainerVisitDateTime">Date and Time of Complainer's Visit:</label>
+                        <input type="datetime-local" id="complainerVisitDateTime" required>
+                    </div>
+                </div>
+
+                <div class="flex-container">
+                    <div>
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" required>
+                    </div>
+                    <div>
+                        <label for="middleName">Middle Name:</label>
+                        <input type="text" id="middleName" required>
+                    </div>
+                    <div>
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" required>
+                    </div>
+                </div>
+
+                <label for="aadharCard">Aadhar Card Information (12 digits):</label>
+                <input type="number" id="aadharCard" pattern="\d{12}" required>
+
+                <div class="flex-container">
+                    <div>
+                        <label for="mobileNumber">Complainer Mobile Number:</label>
+                        <input type="tel" id="mobileNumber" pattern="\d{10}" required>
+                    </div>
+                    <div>
+                        <label for="altMobileNumber">Alternative Mobile Number:</label>
+                        <input type="tel" id="altMobileNumber" pattern="\d{10}">
+                    </div>
+                </div>
+
+                <div class="flex-container">
+                    <div>
+                        <label for="complainerEmail">Complainer Email Address:</label>
+                        <input type="email" id="complainerEmail" pattern="\d{10}" required>
+                    </div>
+                    <div>
+                        <label for="complainerAltEmail">Alternative Email Address:</label>
+                        <input type="email" id="complainerAltEmail" pattern="\d{10}">
+                    </div>
+                </div>
+                <!-- <div class="checkbox-group">
+                    <input type="checkbox" id="sameAsMobile">
+                    <label for="sameAsMobile">Is Number Same as Mobile Number?</label>
+                </div> -->
+
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" required>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="sameAsComplainer">
+                    <label for="sameAsComplainer">Is Complainer Same as Victim?</label>
+                </div>
+
+                <div id="victimFullNameContainer" style="display: none;">
+                    <label for="victimFullName">Victim's Full Name:</label>
+                    <input type="text" id="victimFullName">
+                </div>
+
+                <label for="relationship">Relationship between Victim and Complainer:</label>
+                <input type="text" id="relationship" disabled>
+
+                <!-- Second Form Section -->
+                <hr>
+                <h2>Additional Case Information</h2>
+
+                <label for="complainCategory">Complain Category:</label>
+                <select id="complainCategory" required>
+                    <option value="" disabled selected>Select a category</option>
+                    <option value="Theft">Theft</option>
+                    <option value="Assault">Assault</option>
+                    <option value="Burglary">Burglary</option>
+                    <option value="Fraud">Fraud</option>
+                    <option value="Vandalism">Vandalism</option>
+                    <option value="Kidnapping">Kidnapping</option>
+                    <option value="Harassment">Harassment</option>
+                    <option value="Drug Offense">Drug Offense</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="caseDescription">Description about the Case (Minimum 100 words):</label>
+                <textarea id="caseDescription" rows="5" minlength="100" required></textarea>
+
+                <label for="priority">Priority:</label>
+                <select id="priority" required>
+                    <option value="" disabled selected>Select priority</option>
+                    <option value="Urgent">Urgent</option>
+                    <option value="Normal">Normal</option>
+                </select>
+
+                <label for="incidentDateTime">Date and Time of Incident:</label>
+                <input type="datetime-local" id="incidentDateTime" required>
+
+                <button type="button" onclick="createNewCase()">Submit</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script src="../home/script.js"></script>
+<script src="script.js"></script>
+<script>
+    window.onload = function () {
+        createNewCase();
+
+        // Set current datetime for "Date and Time of Case Registered"
+        const caseRegisteredDateTimeInput = document.getElementById('caseRegisteredDateTime');
+        caseRegisteredDateTimeInput.value = getCurrentDateTime();
+
+        // Add event listener to "Is Complainer Same as Victim?" checkbox
+        const sameAsComplainerCheckbox = document.getElementById('sameAsComplainer');
+        const relationshipInput = document.getElementById('relationship');
+        const victimFullNameContainer = document.getElementById('victimFullNameContainer');
+        const victimFullNameInput = document.getElementById('victimFullName');
+
+        relationshipInput.disabled = sameAsComplainerCheckbox.checked;
+        victimFullNameContainer.style.display = sameAsComplainerCheckbox.checked ? 'none' : 'block';
+
+        sameAsComplainerCheckbox.addEventListener('change', function () {
+            relationshipInput.disabled = this.checked;
+            victimFullNameContainer.style.display = this.checked ? 'none' : 'block';
+            if (this.checked) {
+                // If checked, clear the relationship value and victim's full name
+                relationshipInput.value = '';
+                victimFullNameInput.value = '';
+            }
+        });
+    };
+</script>
