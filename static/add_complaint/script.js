@@ -1,5 +1,5 @@
 let caseIdCounter = 1;
-let startID = 1000001;
+let startID = 1000005;
 function createNewCase() {
   // Increment the case ID counter
   let newCaseID = startID + caseIdCounter;

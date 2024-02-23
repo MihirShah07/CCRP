@@ -21,7 +21,7 @@
     <div id="content">
         <div class="container">
             <h2>Case Registration Form</h2>
-            <form>
+            <form id="add_complaint">
                 <div class="caseid-container">
                     <label for="caseId">CASE ID</label>
                     <input type="text" id="caseId" value="Auto-generated" disabled style="width: 150px;">
@@ -69,18 +69,25 @@
                 <div class="flex-container">
                     <div>
                         <label for="complainerEmail">Complainer Email Address:</label>
-                        <input type="email" id="complainerEmail" pattern="\d{10}" required>
+                        <input type="email" id="complainerEmail" required>
                     </div>
                     <div>
                         <label for="complainerAltEmail">Alternative Email Address:</label>
-                        <input type="email" id="complainerAltEmail" pattern="\d{10}">
+                        <input type="email" id="complainerAltEmail">
                     </div>
                 </div>
                 <!-- <div class="checkbox-group">
                     <input type="checkbox" id="sameAsMobile">
                     <label for="sameAsMobile">Is Number Same as Mobile Number?</label>
                 </div> -->
-
+                <div>
+                    <label for="complainerAddress">Complainer Address</label>
+                    <textarea id="complainerAddress" rows="5" minlength="100" required></textarea>
+                </div>
+                <!-- <div>
+                    <label for="complainerBioMetric">Complainer Bio Metric</label>
+                    <input type="file" id="complainerBioMetric" accept="/image*">
+                </div> -->
 
                 <label for="dob">Date of Birth:</label>
                 <input type="date" id="dob" required>
@@ -129,7 +136,7 @@
                 <label for="incidentDateTime">Date and Time of Incident:</label>
                 <input type="datetime-local" id="incidentDateTime" required>
 
-                <button type="button" onclick="createNewCase()">Submit</button>
+                <button type="submit" onclick="createNewCase()" id="submit">Submit</button>
             </form>
         </div>
 
@@ -167,3 +174,4 @@
         });
     };
 </script>
+<script src="add_complaint.js"></script>
