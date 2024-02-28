@@ -17,7 +17,7 @@ async function addComplaint(event) {
     const complainerAltEmailInput = document.getElementById("complainerAltEmail").value
     const complainer_address = document.getElementById("complainerAddress").value
     const dobInput = document.getElementById("dob").value
-    const sameAsComplainerCheckbox = document.getElementById("sameAsComplainer").checked
+    const sameAsComplainerCheckbox = document.getElementById("sameAsComplainerYes").checked
     // const victimFullNameContainer = document.getElementById("victimFullNameContainer").value
     const victimFullNameInput = document.getElementById("victimFullName").value
     const relationshipInput = document.getElementById("relationship").value

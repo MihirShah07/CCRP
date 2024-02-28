@@ -43,3 +43,8 @@ body {
   top: 10px;
   z-index: 1;
 }
+#portalTitle{
+  font-family: 'Courier New';
+  font-weight: bold;
+  font-size: 2rem;
+}

@@ -42,7 +42,25 @@ const complaintSchema = new mongoose.Schema(
       complaint_priority: { type: String, unique: false },
       date_and_time_of_incident: { type: Date, unique: false },
     },
+    
+    closed: {
+      type: Boolean,
+      default: false,
+    },
+  
+    processes: [
+      {
+        timestamp: {
+          type: Date,
+          default: Date.now,
+        },
+        text: String,
+        assignTeam: String,
+        status:{type:String, default:"pending"},
+      },
+    ]
   },
+  
   { collection: "currentComplain" }
 );
 

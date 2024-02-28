@@ -1,0 +1,162 @@
+[
+    {
+      "caseIdInput": 1000016,
+      "Complainer_same_as_victim": false,
+      "complainer_details": {
+        "date_of_case_registered": "2024-02-26T11:15:00.000Z",
+        "date_of_complainer_visit": "2024-02-26T11:18:00.000Z",
+        "name_of_complainer": "John Doe",
+        "aadhar_card_number": 987654321012,
+        "complainer_mobile_number": 9876543210,
+        "complainer_alternative_number": null,
+        "complainer_email_address": "john@example.com",
+        "complainer_alternative_email_address": "",
+        "curent_address_of_complainer": "123 Main St, Anytown, USA",
+        "dob_of_complainer": "1990-05-15T00:00:00.000Z",
+        "victim_name": "Alice Johnson"
+      },
+      "complaint_details": {
+        "complaint_category": "OnlineFraud",
+        "complaint_description": "Received phishing email with fraudulent link.",
+        "complaint_priority": "High",
+        "date_and_time_of_incident": "2024-02-25T08:30:00.000Z"
+      },
+      "closed": false,
+      "processes": [
+        {
+          "timestamp": "2024-02-26T11:22:15.000Z",
+          "text": "Investigating phishing incident",
+          "assignTeam": "Alpha Team (Cybersecurity Analysts)",
+          "status": "In Progress"
+        }
+      ]
+    },
+    {
+      "caseIdInput": 1000017,
+      "Complainer_same_as_victim": true,
+      "complainer_details": {
+        "date_of_case_registered": "2024-02-27T09:45:00.000Z",
+        "date_of_complainer_visit": "2024-02-27T09:45:00.000Z",
+        "name_of_complainer": "Jane Smith",
+        "aadhar_card_number": 876543210123,
+        "complainer_mobile_number": 8765432109,
+        "complainer_alternative_number": null,
+        "complainer_email_address": "jane@example.com",
+        "complainer_alternative_email_address": "",
+        "curent_address_of_complainer": "456 Oak St, Anycity, USA",
+        "dob_of_complainer": "1985-08-20T00:00:00.000Z",
+        "victim_name": "Jane Smith"
+      },
+      "complaint_details": {
+        "complaint_category": "IdentityTheft",
+        "complaint_description": "Unauthorized access to bank account.",
+        "complaint_priority": "Medium",
+        "date_and_time_of_incident": "2024-02-26T14:20:00.000Z"
+      },
+      "closed": false,
+      "processes": [
+        {
+          "timestamp": "2024-02-27T09:50:30.000Z",
+          "text": "Investigating identity theft incident",
+          "assignTeam": "Beta Team (Digital Forensic Experts)",
+          "status": "In Progress"
+        }
+      ]
+    },
+    {
+        "caseIdInput": 1000013,
+        "Complainer_same_as_victim": false,
+        "complainer_details": {
+          "date_of_case_registered": "2024-02-28T12:30:00.000Z",
+          "date_of_complainer_visit": "2024-02-28T12:32:00.000Z",
+          "name_of_complainer": "Sarah Johnson",
+          "aadhar_card_number": 765432109876,
+          "complainer_mobile_number": 7654321098,
+          "complainer_alternative_number": null,
+          "complainer_email_address": "sarah@example.com",
+          "complainer_alternative_email_address": "",
+          "curent_address_of_complainer": "789 Pine St, Anothercity, USA",
+          "dob_of_complainer": "1992-10-10T00:00:00.000Z",
+          "victim_name": "Michael Williams"
+        },
+        "complaint_details": {
+          "complaint_category": "Phishing",
+          "complaint_description": "Clicked on a phishing link in an email.",
+          "complaint_priority": "High",
+          "date_and_time_of_incident": "2024-02-27T16:45:00.000Z"
+        },
+        "closed": false,
+        "processes": [
+          {
+            "timestamp": "2024-02-28T12:35:45.000Z",
+            "text": "Investigating phishing incident",
+            "assignTeam": "Gamma Team (Incident Responders)",
+            "status": "In Progress"
+          }
+        ]
+      },
+      {
+        "caseIdInput": 1000014,
+        "Complainer_same_as_victim": true,
+        "complainer_details": {
+          "date_of_case_registered": "2024-02-28T15:20:00.000Z",
+          "date_of_complainer_visit": "2024-02-28T15:20:00.000Z",
+          "name_of_complainer": "Alex Turner",
+          "aadhar_card_number": 654321098765,
+          "complainer_mobile_number": 6543210987,
+          "complainer_alternative_number": null,
+          "complainer_email_address": "alex@example.com",
+          "complainer_alternative_email_address": "",
+          "curent_address_of_complainer": "567 Maple St, Yetanothercity, USA",
+          "dob_of_complainer": "1988-03-18T00:00:00.000Z",
+          "victim_name": "Alex Turner"
+        },
+        "complaint_details": {
+          "complaint_category": "OnlineFraud",
+          "complaint_description": "Received a fraudulent job offer online.",
+          "complaint_priority": "Medium",
+          "date_and_time_of_incident": "2024-02-27T10:30:00.000Z"
+        },
+        "closed": false,
+        "processes": [
+          {
+            "timestamp": "2024-02-28T15:25:30.000Z",
+            "text": "Investigating online fraud incident",
+            "assignTeam": "Delta Team (Malware Analysts)",
+            "status": "In Progress"
+          }
+        ]
+      },
+      {
+        "caseIdInput": 1000015,
+        "Complainer_same_as_victim": false,
+        "complainer_details": {
+          "date_of_case_registered": "2024-02-28T18:10:00.000Z",
+          "date_of_complainer_visit": "2024-02-28T18:12:00.000Z",
+          "name_of_complainer": "Megan Roberts",
+          "aadhar_card_number": 543210987654,
+          "complainer_mobile_number": 5432109876,
+          "complainer_alternative_number": null,
+          "complainer_email_address": "megan@example.com",
+          "complainer_alternative_email_address": "",
+          "curent_address_of_complainer": "678 Cedar St, Finalcity, USA",
+          "dob_of_complainer": "1995-07-05T00:00:00.000Z",
+          "victim_name": "Robert Johnson"
+        },
+        "complaint_details": {
+          "complaint_category": "IdentityTheft",
+          "complaint_description": "Unauthorized access to social media account.",
+          "complaint_priority": "High",
+          "date_and_time_of_incident": "2024-02-27T20:15:00.000Z"
+        },
+        "closed": false,
+        "processes": [
+          {
+            "timestamp": "2024-02-28T18:15:45.000Z",
+            "text": "Investigating identity theft incident",
+            "assignTeam": "Epsilon Team (Network Security)",
+            "status": "In Progress"
+          }
+        ]
+      }
+]  
