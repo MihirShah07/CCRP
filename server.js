@@ -131,7 +131,7 @@ app.post("/api/addProcess/:caseId", async (req, res) => {
 
 app.post('/updateStatus/:caseId/:index', async (req, res) => {
   try {
-     const caseId = req.params.caseId; // This is the caseIdInput value
+     const caseId = req.params.caseId;
      const index = req.params.index;
      const newStatus = req.body.newStatus;
  

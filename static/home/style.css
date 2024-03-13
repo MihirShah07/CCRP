@@ -39,8 +39,8 @@ body {
   font-size: 20px;
   cursor: pointer;
   position: fixed;
-  left: 10px;
-  top: 10px;
+  left: 260px;
+  top: 50%;
   z-index: 1;
 }
 #portalTitle{

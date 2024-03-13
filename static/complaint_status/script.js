@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", async () => {
   const cardContainer = document.getElementById("cardContainer");
   const modal = document.getElementById("exampleModalLong");
@@ -18,12 +16,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         cardContainer.appendChild(cardRow);
       }
 
+      const statusIndicator = document.createElement("div");
+      statusIndicator.className = "status-indicator";
+      statusIndicator.innerText = caseData.closed ? 'Closed' : "Ongoing";
+      statusIndicator.style.backgroundColor = caseData.closed ? "red" : "#0069d9";
+
       const cardCol = document.createElement("div");
       cardCol.className = "col-md-4"; // Bootstrap grid class for a 4-column layout
 
       const card = document.createElement("div");
-      card.className = "card";
-      card.style = "width: 18rem;";
+      card.className = "card m-1";
+      card.style = "";
 
       card.innerHTML = `
             <div class="card-body">
@@ -33,10 +36,11 @@ document.addEventListener("DOMContentLoaded", async () => {
               <p class="card-text">Priority: ${caseData.complaint_details.complaint_priority}</p>
             </div>
           `;
-
+          card.appendChild(statusIndicator);
       card.addEventListener("click", () => {
         openModal(caseData);
       });
+      
       cardCol.appendChild(card);
       cardContainer.lastElementChild.appendChild(cardCol);
     });
@@ -143,7 +147,7 @@ function handleAddProcess(caseData) {
       <input type="datetime-local" id="processDateTime" class="form-control" disabled>
     </div>
     <div class="form-group">
-      <label for="teamAssign">Team Assign:</label>
+      <label for="teamAssign">Task Incharge:</label>
       <select id="teamAssign" class="form-control">
       <option value="Agent Emily Lawson (Digital Forensic Investigator)">Agent Emily Lawson (Digital Forensic Investigator)</option>
       <option value="Detective Marcus Steele (Cybersecurity Analyst)">Detective Marcus Steele (Cybersecurity Analyst)</option>
@@ -328,4 +332,3 @@ function updateStatus(caseId, index) {
   })
   .catch((error) => console.error(error));
  }
- 
