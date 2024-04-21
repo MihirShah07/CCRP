@@ -40,6 +40,7 @@ const complaintSchema = new mongoose.Schema(
       complaint_category: { type: String, unique: false },
       complaint_description: { type: String, unique: false },
       complaint_priority: { type: String, unique: false },
+      assigned_team:{type:String, unique:false},
       date_and_time_of_incident: { type: Date, unique: false },
     },
     
@@ -61,7 +62,7 @@ const complaintSchema = new mongoose.Schema(
     ]
   },
   
-  { collection: "currentComplain" }
+  { collection: "currentComplaint" }
 );
 
 const complaint = mongoose.model("complaintSchema", complaintSchema);

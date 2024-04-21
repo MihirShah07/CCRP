@@ -115,6 +115,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <p>Case Details: ${
                   caseData.complaint_details.complaint_description
                 }</p>              
+                <p><b>Assigned Team:</b> ${caseData.complaint_details.assigned_team}</p>
               </div>
   
               <!-- Table for displaying process data -->
@@ -134,11 +135,11 @@ document.addEventListener("DOMContentLoaded", async () => {
               <div class="modal-footer">
               <button type="button" class="btn btn-primary" id="addProcessBtn" ${
                 caseData.closed ? "disabled" : ""
-              }>Add Task</button>
+              }>Update Progress</button>
               <button type="button" class="btn btn-danger" id="closeCaseBtn" ${
                 caseData.closed ? "disabled" : ""
               }>Close Case</button>
-            </div>disabled
+            </div>
             </div>
           </div>
         `;
@@ -221,7 +222,15 @@ function handleAddProcess(caseData) {
 }
 
 function handleCloseCase(caseData) {
-  const { caseIdInput } = caseData;
+  const { caseIdInput, processes } = caseData;
+
+  const allProcessesCompleted = processes.every(process => process.status === 'completed');
+
+  if (!allProcessesCompleted) {
+     alert('All processes must be completed before closing the case.');
+     return;
+  }
+ 
 
   // Assuming you have a backend API endpoint for closing the case
   fetch(`/api/closeCase/${caseIdInput}`, {
@@ -347,7 +356,7 @@ function generateProcessTableRows(processes, caseData) {
            caseData.caseIdInput
          }' data-timestamp='${
         process.timestamp
-      }' data-index='${index}' onclick="updateStatus(this.getAttribute('data-case-id'), this.getAttribute('data-index'))">Update Status</button>
+      }' data-index='${index}' onclick="updateStatus(this.getAttribute('data-case-id'), this.getAttribute('data-index'))" ${caseData.closed ? "disabled" : ""}>Update Status</button>
          </td>
        </tr>
     `

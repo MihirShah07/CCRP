@@ -1,14 +1,16 @@
+require('dotenv').config();
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const complaint = require("./model/add_comp");
 
-mongoose.connect("mongodb://localhost:27017/police_complaint", {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
+console.log(process.env.MONGODB_URI)
 const app = express();
 
 app.use(bodyParser.json()); // Add this middleware to parse JSON requests
@@ -56,6 +58,7 @@ app.post("/api/addComplaint", async (req, res) => {
     complainCategoryInput,
     caseDescriptionInput,
     priorityInput,
+    assignedTeam,
     incidentDateTimeInput,
   } = req.body;
 
@@ -88,6 +91,7 @@ app.post("/api/addComplaint", async (req, res) => {
       "complainer_details.victim_name": victimName,
       "complaint_details.complaint_category": complainCategoryInput,
       "complaint_details.complaint_description": caseDescriptionInput,
+      "complaint_details.assigned_team":assignedTeam,
       "complaint_details.complaint_priority": priorityInput,
       "complaint_details.date_and_time_of_incident": incidentDateTimeInput,
     });

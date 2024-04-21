@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../home/style.css">
+  <link rel="stylesheet" href="style.css" />
+  <title>Report</title>
+  <style>
+    #toggle-btn.closed-side {
+      left: 10px !important;
+      transition: all 0.2;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="toggle-btn">&#x02190;</div>
+  <div id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="../add_complaint/index.html">Add Complaint</a>
+    <a href="../complaint_status/index.html">Status</a>
+    <a href="../search_bar/index.html">Search</a>
+    <a href="index.html">Report</a>
+  </div>
+
+  <div id="content">
+    <div class="container">
+      <h2>REPORT</h2>
+      <form id="add_complaint">
+        <div class="caseid-container">
+          <div class="flex-container">
+            <div>
+              <label for="startDate">Start Date(Incident)</label>
+              <input type="date" id="startDate" required />
+            </div>
+            <div>
+              <label for="endDate">End Date(Incident)</label>
+              <input type="date" id="endDate" required />
+            </div>
+          </div>
+        </div>
+        <div>
+          <lable for="typeOfIncident">Type of Incident</lable>
+          <select class="custom-select" id="typeOfIncident">
+            <option value="" disabled selected>Select Crime Category</option>
+            <option value="Phishing">Phishing</option>
+            <option value="IdentityTheft">Identity Theft</option>
+            <option value="Malware">Malware Attacks</option>
+            <option value="Hacking">Hacking</option>
+            <option value="CyberBullying">Cyber Bullying</option>
+            <option value="OnlineFraud">Online Fraud</option>
+            <option value="DataBreach">Data Breach</option>
+            <option value="Ransomware">Ransomware</option>
+            <option value="OnlineScams">Online Scams</option>
+            <option value="CyberEspionage">Cyber Espionage</option>
+            <option value="SocialEngineering">Social Engineering</option>
+            <option value="DenialOfService">
+              Denial of Service (DoS) Attacks
+            </option>
+            <option value="Pharming">Pharming</option>
+          </select>
+        </div>
+        <div>
+          <lable for="selectTeam">Select Team</lable>
+          <select class="custom-select" id="selectTeam">
+            <option value="Agent Emily Lawson (Digital Forensic Investigator)">Agent Emily Lawson (Digital Forensic
+              Investigator)</option>
+            <option value="Detective Marcus Steele (Cybersecurity Analyst)">Detective Marcus Steele (Cybersecurity
+              Analyst)</option>
+            <option value="Investigator Ava Chen (Network Security Specialist)">Investigator Ava Chen (Network Security
+              Specialist)</option>
+            <option value="Special Agent Jason Rodriguez (Incident Responder)">Special Agent Jason Rodriguez (Incident
+              Responder)</option>
+            <option value="Cyber Analyst Samantha Greene (Malware Analyst)">Cyber Analyst Samantha Greene (Malware
+              Analyst)</option>
+            <option value="Officer Ethan Blackwell (Cyber Intelligence Officer)">Officer Ethan Blackwell (Cyber
+              Intelligence Officer)</option>
+            <option value="Investigative Specialist Natalie Martinez (Threat Hunter)">Investigative Specialist Natalie
+              Martinez (Threat Hunter)</option>
+            <option value="Cybersecurity Expert Caleb Harper (Security Consultant)">Cybersecurity Expert Caleb Harper
+              (Security Consultant)</option>
+            <option value="Detective Maya Patel (Cryptocurrency Investigator)">Detective Maya Patel (Cryptocurrency
+              Investigator)</option>
+            <option value="Special Agent Ryan Mitchell (Cybercrime Prosecutor)">Special Agent Ryan Mitchell (Cybercrime
+              Prosecutor)</option>
+          </select>
+        </div>
+        <div>
+          <lable for="caseStatus">Case Status</lable>
+          <select class="custom-select" id="caseStatus">
+            <option value="ongoing">Ongoing</option>
+            <option value="closed">Closed</option>
+          </select>
+        </div>
+
+
+        <button type="submit" onclick="generateReport()" id="submit">
+          Generate Report
+        </button>
+    </div>
+  </div>
+  </form>
+  </div>
+  </div>
+
+
+  <script src="../home/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+[
+    {
+        "caseIdInput": 1000019,
+        "Complainer_same_as_victim": true,
+        "complainer_details": {
+            "date_of_case_registered": "2024-03-13T00:00:00.000Z",
+            "date_of_complainer_visit": "2024-03-13T00:00:00.000Z",
+            "name_of_complainer": "John Doe",
+            "aadhar_card_number": 123456789012,
+            "complainer_mobile_number": 1234567890,
+            "complainer_alternative_number": 9876543210,
+            "complainer_email_address": "john.doe@example.com",
+            "complainer_alternative_email_address": "john_alt@example.com",
+            "curent_address_of_complainer": "123 Main Street, Anytown",
+            "dob_of_complainer": "1990-01-01T00:00:00.000Z",
+            "relationship_between_victim": "Self",
+            "victim_name": "John Doe"
+        },
+        "complaint_details": {
+            "complaint_category": "Phishing",
+            "complaint_description": "Received suspicious email asking for personal information.",
+            "complaint_priority": "Urgent",
+            "assigned_team": "CyberIntelForce",
+            "date_and_time_of_incident": "2024-03-12T10:30:00.000Z"
+        },
+        "closed": false,
+        "processes": [
+            {
+                "timestamp": "2024-03-13T08:00:00.000Z",
+                "text": "Initial report received.",
+                "assignTeam": "Agent Emily Lawson (Digital Forensic Investigator)",
+                "status": "pending"
+            }
+        ]
+    },
+    {
+        "caseIdInput": 1000020,
+        "Complainer_same_as_victim": false,
+        "complainer_details": {
+            "date_of_case_registered": "2024-03-13T00:00:00.000Z",
+            "date_of_complainer_visit": "2024-03-13T00:00:00.000Z",
+            "name_of_complainer": "Alice Smith",
+            "aadhar_card_number": 234567890123,
+            "complainer_mobile_number": 2345678901,
+            "complainer_alternative_number": 7890123456,
+            "complainer_email_address": "alice.smith@example.com",
+            "complainer_alternative_email_address": "alice_alt@example.com",
+            "curent_address_of_complainer": "456 Oak Avenue, Anycity",
+            "dob_of_complainer": "1985-05-15T00:00:00.000Z",
+            "relationship_between_victim": "Mother",
+            "victim_name": "Bob Smith"
+        },
+        "complaint_details": {
+            "complaint_category": "IdentityTheft",
+            "complaint_description": "Credit card information stolen and used for unauthorized purchases.",
+            "complaint_priority": "Normal",
+            "assigned_team": "CyberSecurityTaskForce",
+            "date_and_time_of_incident": "2024-03-10T15:45:00.000Z"
+        },
+        "closed": false,
+        "processes": [
+            {
+                "timestamp": "2024-03-13T08:30:00.000Z",
+                "text": "Initial report received.",
+                "assignTeam": "Detective Marcus Steele (Cybersecurity Analyst)",
+                "status": "pending"
+            }
+        ]
+    },
+    {
+        "caseIdInput": 1000021,
+        "Complainer_same_as_victim": true,
+        "complainer_details": {
+            "date_of_case_registered": "2024-03-14T00:00:00.000Z",
+            "date_of_complainer_visit": "2024-03-14T00:00:00.000Z",
+            "name_of_complainer": "Emily Johnson",
+            "aadhar_card_number": 345678901234,
+            "complainer_mobile_number": 3456789012,
+            "complainer_alternative_number": 8901234567,
+            "complainer_email_address": "emily.johnson@example.com",
+            "complainer_alternative_email_address": "emily_alt@example.com",
+            "curent_address_of_complainer": "789 Elm Street, Anytown",
+            "dob_of_complainer": "1982-09-20T00:00:00.000Z",
+            "relationship_between_victim": "Friend",
+            "victim_name": "Emily Johnson"
+        },
+        "complaint_details": {
+            "complaint_category": "Malware",
+            "complaint_description": "Computer infected with malware after downloading suspicious file.",
+            "complaint_priority": "Normal",
+            "assigned_team": "DigitalInvestigationUnit",
+            "date_and_time_of_incident": "2024-03-13T12:15:00.000Z"
+        },
+        "closed": false,
+        "processes": [
+            {
+                "timestamp": "2024-03-14T09:00:00.000Z",
+                "text": "Initial report received.",
+                "assignTeam": "Investigator Ava Chen (Network Security Specialist)",
+                "status": "pending"
+            }
+        ]
+    },
+    {
+        "caseIdInput": 1000022,
+        "Complainer_same_as_victim": true,
+        "complainer_details": {
+            "date_of_case_registered": "2024-03-15T00:00:00.000Z",
+            "date_of_complainer_visit": "2024-03-15T00:00:00.000Z",
+            "name_of_complainer": "Michael Brown",
+            "aadhar_card_number": 456789012345,
+            "complainer_mobile_number": 4567890123,
+            "complainer_alternative_number": 9012345678,
+            "complainer_email_address": "michael.brown@example.com",
+            "complainer_alternative_email_address": "michael_alt@example.com",
+            "curent_address_of_complainer": "101 Pine Street, Anycity",
+            "dob_of_complainer": "1977-07-10T00:00:00.000Z",
+            "relationship_between_victim": "Colleague",
+            "victim_name": "Michael Brown"
+        },
+        "complaint_details": {
+            "complaint_category": "OnlineFraud",
+            "complaint_description": "Scammed out of money through fraudulent online investment scheme.",
+            "complaint_priority": "Urgent",
+            "assigned_team": "CyberCrimeResponseUnit",
+            "date_and_time_of_incident": "2024-03-14T09:30:00.000Z"
+        },
+        "closed": false,
+        "processes": [
+            {
+                "timestamp": "2024-03-15T09:15:00.000Z",
+                "text": "Initial report received.",
+                "assignTeam": "Special Agent Jason Rodriguez (Incident Responder)",
+                "status": "pending"
+            }
+        ]
+    },
+    {
+        "caseIdInput": 1000023,
+        "Complainer_same_as_victim": false,
+        "complainer_details": {
+            "date_of_case_registered": "2024-03-16T00:00:00.000Z",
+            "date_of_complainer_visit": "2024-03-16T00:00:00.000Z",
+            "name_of_complainer": "Sarah Williams",
+            "aadhar_card_number": 567890123456,
+            "complainer_mobile_number": 5678901234,
+            "complainer_alternative_number": 1023456789,
+            "complainer_email_address": "sarah.williams@example.com",
+            "complainer_alternative_email_address": "sarah_alt@example.com",
+            "curent_address_of_complainer": "202 Maple Avenue, Anytown",
+            "dob_of_complainer": "1995-03-25T00:00:00.000Z",
+            "relationship_between_victim": "Sibling",
+            "victim_name": "Olivia Williams"
+        },
+        "complaint_details": {
+            "complaint_category": "Ransomware",
+            "complaint_description": "Computer files encrypted by ransomware demanding payment.",
+            "complaint_priority": "Normal",
+            "assigned_team": "CyberThreatAnalysisTeam",
+            "date_and_time_of_incident": "2024-03-15T14:00:00.000Z"
+        },
+        "closed": false,
+        "processes": [
+            {
+                "timestamp": "2024-03-16T10:00:00.000Z",
+                "text": "Initial report received.",
+                "assignTeam": "Cyber Analyst Samantha Greene (Malware Analyst)",
+                "status": "pending"
+            }
+        ]
+    },
+    {
+        "caseIdInput": 1000024,
+        "Complainer_same_as_victim": true,
+        "complainer_details": {
+            "date_of_case_registered": "2024-03-17T00:00:00.000Z",
+            "date_of_complainer_visit": "2024-03-17T00:00:00.000Z",
+            "name_of_complainer": "David Wilson",
+            "aadhar_card_number": 678901234567,
+            "complainer_mobile_number": 6789012345,
+            "complainer_alternative_number": 1234567890,
+            "complainer_email_address": "david.wilson@example.com",
+            "complainer_alternative_email_address": "david_alt@example.com",
+            "curent_address_of_complainer": "303 Oak Street, Anycity",
+            "dob_of_complainer": "1980-11-05T00:00:00.000Z",
+            "relationship_between_victim": "Friend",
+            "victim_name": "David Wilson"
+        },
+        "complaint_details": {
+            "complaint_category": "CyberBullying",
+            "complaint_description": "Receiving threatening messages and harassment online.",
+            "complaint_priority": "Urgent",
+            "assigned_team": "CyberIncidentResponseTeam",
+            "date_and_time_of_incident": "2024-03-16T20:45:00.000Z"
+        },
+        "closed": false,
+        "processes": [
+            {
+                "timestamp": "2024-03-17T10:30:00.000Z",
+                "text": "Initial report received.",
+                "assignTeam": "Officer Ethan Blackwell (Cyber Intelligence Officer)",
+                "status": "pending"
+            }
+        ]
+    },
+    {
+        "caseIdInput": 1000025,
+        "Complainer_same_as_victim": false,
+        "complainer_details": {
+            "date_of_case_registered": "2024-03-18T00:00:00.000Z",
+            "date_of_complainer_visit": "2024-03-18T00:00:00.000Z",
+            "name_of_complainer": "Jessica Miller",
+            "aadhar_card_number": 789012345678,
+            "complainer_mobile_number": 7890123456,
+            "complainer_alternative_number": 2345678901,
+            "complainer_email_address": "jessica.miller@example.com",
+            "complainer_alternative_email_address": "jessica_alt@example.com",
+            "curent_address_of_complainer": "404 Elm Street, Anytown",
+            "dob_of_complainer": "1993-12-15T00:00:00.000Z",
+            "relationship_between_victim": "Spouse",
+            "victim_name": "Andrew Miller"
+        },
+        "complaint_details": {
+            "complaint_category": "DenialOfService",
+            "complaint_description": "Website unavailable due to ongoing DDoS attack.",
+            "complaint_priority": "Normal",
+            "assigned_team": "CyberSecurityTaskForce",
+            "date_and_time_of_incident": "2024-03-17T16:20:00.000Z"
+        },
+        "closed": false,
+        "processes": [
+            {
+                "timestamp": "2024-03-18T09:45:00.000Z",
+                "text": "Initial report received.",
+                "assignTeam": "Investigative Specialist Natalie Martinez (Threat Hunter)",
+                "status": "pending"
+            }
+        ]
+    }
+]

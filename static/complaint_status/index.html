@@ -12,6 +12,26 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
+    /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
     .card-container {
       height: 600px;
       /* Set a fixed height for the container */
@@ -48,10 +68,10 @@
     <a href="../add_complaint/index.html">Add Complaint</a>
     <a href="index.html">Status</a>
     <a href="../search_bar/index.html">Search</a>
-    <!-- <a href="#contact">Contact</a> -->
+    <a href="../report/index.html">Report</a>
   </div>
   <div id="content">
-    <div id="cardContainer" class="container-fluid" style="height: 100vh;"></div>
+    <div id="cardContainer" class="container-fluid" style="height: 100vh;overflow: scroll;padding-bottom: 20px;"></div>
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
       aria-hidden="true">
       <!-- Modal content will be dynamically populated here -->

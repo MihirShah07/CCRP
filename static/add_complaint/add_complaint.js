@@ -24,6 +24,7 @@ async function addComplaint(event) {
     const complainCategoryInput = document.getElementById("complainCategory").value
     const caseDescriptionInput = document.getElementById("caseDescription").value
     const priorityInput = document.getElementById("priority").value
+    const assignedTeam = document.getElementById("Team_List").value
     const incidentDateTimeInput = document.getElementById("incidentDateTime").value
     // const fileInput = document.getElementById("complainerBioMetric");
     // const selectedFiles = fileInput.files;
@@ -57,6 +58,7 @@ async function addComplaint(event) {
           complainCategoryInput,
           caseDescriptionInput,
           priorityInput,
+          assignedTeam,
           incidentDateTimeInput
         })
       }).then((res) => res.json())

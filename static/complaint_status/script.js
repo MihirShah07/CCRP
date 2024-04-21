@@ -59,25 +59,26 @@ document.addEventListener("DOMContentLoaded", async () => {
               </button>
             </div>
             <div class="modal-body">
-              <p>Registration Date: ${formatDate(
+              <p><b>Registration Date:</b> ${formatDate(
                 caseData.complainer_details.date_of_case_registered
               )}</p>
-              <p>Incident Date: ${formatDate(
+              <p><b>Incident Date:</b> ${formatDate(
                 caseData.complaint_details.date_and_time_of_incident
               )}</p>
-              <p>Victim Name: ${caseData.complainer_details.victim_name}</p>
-              <p>Complainer Name: ${
+              <p><b>Victim Name:</b> ${caseData.complainer_details.victim_name}</p>
+              <p><b>Complainer Name:</b> ${
                 caseData.complainer_details.name_of_complainer
               }</p>
-              <p>Case Priority: ${
+              <p><b>Case Priority:</b> ${
                 caseData.complaint_details.complaint_priority
               }</p>
-              <p>Case Category: ${
+              <p><b>Case Category:</b> ${
                 caseData.complaint_details.complaint_category
               }</p>
-              <p>Case Details: ${
+              <p><b>Case Details:</b> ${
                 caseData.complaint_details.complaint_description
-              }</p>              
+              }</p> 
+              <p><b>Assigned Team:</b> ${caseData.complaint_details.assigned_team}</p>             
             </div>
 
             <!-- Table for displaying process data -->
@@ -85,9 +86,10 @@ document.addEventListener("DOMContentLoaded", async () => {
               <thead>
                 <tr>
                   <th>Date & Time</th>
-                  <th>Task Details</th>
+                  <th style="width:350px;">Task Details</th>
                   <th>Assigned Team</th>
                   <th>Status</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -97,11 +99,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             <div class="modal-footer">
             <button type="button" class="btn btn-primary" id="addProcessBtn" ${
               caseData.closed ? "disabled" : ""
-            }>Add Task</button>
+            }>Update Progress</button>
             <button type="button" class="btn btn-danger" id="closeCaseBtn" ${
               caseData.closed ? "disabled" : ""
             }>Close Case</button>
-          </div>disabled
+          </div>
           </div>
         </div>
       `;
@@ -159,7 +161,6 @@ function handleAddProcess(caseData) {
       <option value="Cybersecurity Expert Caleb Harper (Security Consultant)">Cybersecurity Expert Caleb Harper (Security Consultant)</option>
       <option value="Detective Maya Patel (Cryptocurrency Investigator)">Detective Maya Patel (Cryptocurrency Investigator)</option>
       <option value="Special Agent Ryan Mitchell (Cybercrime Prosecutor)">Special Agent Ryan Mitchell (Cybercrime Prosecutor)</option>
-      
       </select>
     </div>
     <div class="form-group">
@@ -184,8 +185,14 @@ function handleAddProcess(caseData) {
 }
 
 function handleCloseCase(caseData) {
-  const { caseIdInput } = caseData;
+  const { caseIdInput, processes } = caseData;
 
+  const allProcessesCompleted = processes.every(process => process.status === 'completed');
+
+  if (!allProcessesCompleted) {
+     alert('All processes must be completed before closing the case.');
+     return;
+  }
   // Assuming you have a backend API endpoint for closing the case
   fetch(`/api/closeCase/${caseIdInput}`, {
     // Update the URL to include caseId
@@ -206,6 +213,7 @@ function handleCloseCase(caseData) {
         const addProcessBtn = document.getElementById("addProcessBtn");
         closeCaseBtn.disabled = true;
         addProcessBtn.disabled = true;
+        location.reload();
       } else {
         console.error("Error closing the case:", data.error);
       }
@@ -253,6 +261,7 @@ function handleSubmitProcess(caseData) {
         // Disable the "Add Process" button after adding the process
         const addProcessBtn = document.getElementById("addProcessBtn");
         addProcessBtn.disabled = true;
+        location.reload();
         // Optionally, update the UI or perform any other actions
       } else {
         // Handle error
@@ -306,7 +315,7 @@ function generateProcessTableRows(processes, caseData) {
          </select>
        </td>
        <td>
-       <button class="btn btn-primary" data-case-id='${caseData.caseIdInput}' data-timestamp='${process.timestamp}' data-index='${index}' onclick="updateStatus(this.getAttribute('data-case-id'), this.getAttribute('data-index'))">Update Status</button>
+       <button class="btn btn-primary" data-case-id='${caseData.caseIdInput}' data-timestamp='${process.timestamp}' data-index='${index}' onclick="updateStatus(this.getAttribute('data-case-id'), this.getAttribute('data-index'))" ${caseData.closed ? "disabled" : ""}>Update Status</button>
        </td>
      </tr>
   `
@@ -328,6 +337,7 @@ function updateStatus(caseId, index) {
   .then((response) => response.json())
   .then((data) => {
      console.log(data.message);
+     location.reload();
      // Handle success, update UI as needed
   })
   .catch((error) => console.error(error));
