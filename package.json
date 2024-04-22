@@ -6,6 +6,7 @@
   "start": "nodemon node server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo 'No build step required.'",
     "dev": "nodemon server.js"
   },
   "author": "",
