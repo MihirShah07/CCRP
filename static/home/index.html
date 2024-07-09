@@ -28,37 +28,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-  <!-- / Assuming you have a React component
-
-  import React, { useState, useEffect } from 'react';
-
-  const CaseList = () => {
-    const [cases, setCases] = useState([]);
-
-    useEffect(() => {
-      // Fetch cases from the backend when the component mounts
-      fetch('/api/getCases')
-        .then(response => response.json())
-        .then(data => setCases(data))
-        .catch(error => console.error(error));
-    }, []);
-
-    return (
-      <div>
-        <h2>Case List</h2>
-        {cases.map((caseItem) => (
-          <div key={caseItem._id} onClick={() => handleCardClick(caseItem.caseIdInput)}>
-            <h3>{caseItem.caseIdInput}</h3>
-            {/* Display other overview details */}
-          </div>
-        ))}
-      </div>
-    );
-  };
-
-  const handleCardClick = (caseId) => {
-    // Handle the click event, you might want to redirect to another page or show a modal with detailed information
-    console.log(`Clicked on case with ID: ${caseId}`);
-  };
-
-  export default CaseList; -->
