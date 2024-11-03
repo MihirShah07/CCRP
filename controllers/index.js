@@ -1,4 +1,6 @@
 const complaint = require("../model/add_comp");
+const puppeteer = require("puppeteer");
+const path = require("path");
 
 function handleServeHomeFile(req, res) {
   return res.sendFile(path.join(__dirname, "static", "home", "index.html"));
@@ -165,6 +167,36 @@ async function handleGetAllCases(req, res) {
   }
 }
 
+async function handleGeneratePDF(req, res) {
+  try {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+
+    // Assuming you have a URL endpoint that serves the HTML you want to convert to PDF
+    await page.goto("http://localhost:3000/report/index.html", {
+      waitUntil: "networkidle2"
+    });
+
+    const pdfBuffer = await page.pdf({
+      format: "A4",
+      printBackground: true
+    });
+
+    await browser.close();
+
+    // Set response headers for PDF download
+    res.set({
+      "Content-Type": "application/pdf",
+      "Content-Disposition": "attachment; filename=report.pdf"
+    });
+
+    return res.send(pdfBuffer);
+  } catch (error) {
+    console.error("Error generating PDF:", error);
+    return res.status(500).json({ status: "error", error: "Internal Server Error" });
+  }
+}
+
 module.exports = {
   handleServeHomeFile,
   handleGetLatestCaseID,
@@ -173,4 +205,5 @@ module.exports = {
   handleUpdateStatus,
   handleGetAllCases,
   handleCloseCase,
+  handleGeneratePDF
 };
