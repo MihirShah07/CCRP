@@ -167,23 +167,24 @@ async function handleGetAllCases(req, res) {
   }
 }
 
-async function handleGetCasesByDate(req, res) {
-  const { startDate, endDate } = req.query;
+async function handleGetFilteredCases(req, res) {
+  const { startDate, endDate, typeOfIncident, selectTeam, caseStatus } = req.query;
+
+  const query = (({ startDate, endDate, typeOfIncident, selectTeam, caseStatus }) => (console.log("Incoming Request Parameters: ", { startDate, endDate, typeOfIncident, selectTeam, caseStatus }), Object.assign({}, startDate && endDate ? { "complaint_details.date_and_time_of_incident": { $gte: new Date(startDate), $lte: new Date(endDate) } } : {}, typeOfIncident ? { "complaint_details.complaint_category": typeOfIncident } : {}, selectTeam ? { "complaint_details.assigned_team": selectTeam } : {}, caseStatus ? (console.log("Case Status Value: ", caseStatus), { "closed": caseStatus === "closed" }) : {}))) (req.query);
+  // Log the incoming request parameters
+  console.log("Incoming Request Parameters: ", { startDate, endDate, typeOfIncident, selectTeam, caseStatus });
+
 
   try {
-    const cases = await complaint.find({
-      "complaint_details.date_and_time_of_incident": {
-        $gte: new Date(startDate),
-        $lte: new Date(endDate),
-      },
-    });
-
-    return res.json({ status: "ok", cases });
+    // Fetch cases that match the query
+    const cases = await complaint.find(query);
+    res.json(cases);
   } catch (error) {
-    console.error("Error fetching cases:", error);
-    return res.status(500).json({ status: "error", error: "Internal Server Error" });
+    console.error(error);
+    res.status(500).json({ status: "error", error: "Internal Server Error" });
   }
 }
+
 
 module.exports = {
   handleServeHomeFile,
@@ -193,5 +194,5 @@ module.exports = {
   handleUpdateStatus,
   handleGetAllCases,
   handleCloseCase,
-  handleGetCasesByDate
+  handleGetFilteredCases
 };

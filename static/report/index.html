@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +11,12 @@
       left: 10px !important;
       transition: all 0.2;
     }
-
     .title {
       font-size: 2rem;
       font-weight: bold;
     }
   </style>
 </head>
-
 <body>
   <div id="toggle-btn">&#x02190;</div>
   <div id="sidebar">
@@ -33,7 +30,7 @@
   <div id="content">
     <div class="container">
       <h2>REPORT</h2>
-      <form id="add_complaint">
+      <form id="filterForm">
         <div class="caseid-container">
           <div class="flex-container">
             <div>
@@ -47,65 +44,48 @@
           </div>
         </div>
         <div>
-          <lable for="typeOfIncident">Type of Incident</lable>
+          <label for="typeOfIncident">Type of Incident</label>
           <select class="custom-select" id="typeOfIncident">
             <option value="" disabled selected>Select Crime Category</option>
             <option value="Phishing">Phishing</option>
             <option value="IdentityTheft">Identity Theft</option>
             <option value="Malware">Malware Attacks</option>
-            <option value="Hacking">Hacking</option>
             <option value="CyberBullying">Cyber Bullying</option>
             <option value="OnlineFraud">Online Fraud</option>
             <option value="DataBreach">Data Breach</option>
             <option value="Ransomware">Ransomware</option>
             <option value="OnlineScams">Online Scams</option>
-            <option value="CyberEspionage">Cyber Espionage</option>
-            <option value="SocialEngineering">Social Engineering</option>
-            <option value="DenialOfService">
-              Denial of Service (DoS) Attacks
-            </option>
-            <option value="Pharming">Pharming</option>
+            <option value="DenialOfService">Denial of Service (DoS) Attacks</option>
           </select>
         </div>
         <div>
-          <lable for="selectTeam">Select Team</lable>
+          <label for="selectTeam">Select Team</label>
           <select class="custom-select" id="selectTeam">
-            <option value="Agent Emily Lawson (Digital Forensic Investigator)">Agent Emily Lawson (Digital Forensic
-              Investigator)</option>
-            <option value="Detective Marcus Steele (Cybersecurity Analyst)">Detective Marcus Steele (Cybersecurity
-              Analyst)</option>
-            <option value="Investigator Ava Chen (Network Security Specialist)">Investigator Ava Chen (Network Security
-              Specialist)</option>
-            <option value="Special Agent Jason Rodriguez (Incident Responder)">Special Agent Jason Rodriguez (Incident
-              Responder)</option>
-            <option value="Cyber Analyst Samantha Greene (Malware Analyst)">Cyber Analyst Samantha Greene (Malware
-              Analyst)</option>
-            <option value="Officer Ethan Blackwell (Cyber Intelligence Officer)">Officer Ethan Blackwell (Cyber
-              Intelligence Officer)</option>
-            <option value="Investigative Specialist Natalie Martinez (Threat Hunter)">Investigative Specialist Natalie
-              Martinez (Threat Hunter)</option>
-            <option value="Cybersecurity Expert Caleb Harper (Security Consultant)">Cybersecurity Expert Caleb Harper
-              (Security Consultant)</option>
-            <option value="Detective Maya Patel (Cryptocurrency Investigator)">Detective Maya Patel (Cryptocurrency
-              Investigator)</option>
-            <option value="Special Agent Ryan Mitchell (Cybercrime Prosecutor)">Special Agent Ryan Mitchell (Cybercrime
-              Prosecutor)</option>
+            <option value="Agent Emily Lawson (Digital Forensic Investigator)">Agent Emily Lawson (Digital Forensic Investigator)</option>
+            <option value="Detective Marcus Steele (Cybersecurity Analyst)">Detective Marcus Steele (Cybersecurity Analyst)</option>
+            <option value="Investigator Ava Chen (Network Security Specialist)">Investigator Ava Chen (Network Security Specialist)</option>
+            <option value="Special Agent Jason Rodriguez (Incident Responder)">Special Agent Jason Rodriguez (Incident Responder)</option>
+            <option value="Cyber Analyst Samantha Greene (Malware Analyst)">Cyber Analyst Samantha Greene (Malware Analyst)</option>
+            <option value="Officer Ethan Blackwell (Cyber Intelligence Officer)">Officer Ethan Blackwell (Cyber Intelligence Officer)</option>
+            <option value="Investigative Specialist Natalie Martinez (Threat Hunter)">Investigative Specialist Natalie Martinez (Threat Hunter)</option>
+            <option value="Cybersecurity Expert Caleb Harper (Security Consultant)">Cybersecurity Expert Caleb Harper (Security Consultant)</option>
+            <option value="Detective Maya Patel (Cryptocurrency Investigator)">Detective Maya Patel (Cryptocurrency Investigator)</option>
+            <option value="Special Agent Ryan Mitchell (Cybercrime Prosecutor)">Special Agent Ryan Mitchell (Cybercrime Prosecutor)</option>
           </select>
         </div>
         <div>
-          <lable for="caseStatus">Case Status</lable>
+          <label for="caseStatus">Case Status</label>
           <select class="custom-select" id="caseStatus">
             <option value="ongoing">Ongoing</option>
             <option value="closed">Closed</option>
           </select>
         </div>
         <button type="button" onclick="generatePDF()">Download Report</button>
+      </form>
     </div>
   </div>
-  </form>
-  </div>
-  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-  <script src="../home/script.js"></script>
+  <script src="../report/script.js"></script>
 </body>
 </html>
