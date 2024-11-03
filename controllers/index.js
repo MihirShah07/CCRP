@@ -1,5 +1,5 @@
 const complaint = require("../model/add_comp");
-const puppeteer = require("puppeteer");
+const mongoose = require("mongoose");
 const path = require("path");
 
 function handleServeHomeFile(req, res) {
@@ -167,32 +167,20 @@ async function handleGetAllCases(req, res) {
   }
 }
 
-async function handleGeneratePDF(req, res) {
+async function handleGetCasesByDate(req, res) {
+  const { startDate, endDate } = req.query;
+
   try {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-
-    // Assuming you have a URL endpoint that serves the HTML you want to convert to PDF
-    await page.goto("http://localhost:3000/report/index.html", {
-      waitUntil: "networkidle2"
+    const cases = await complaint.find({
+      "complaint_details.date_and_time_of_incident": {
+        $gte: new Date(startDate),
+        $lte: new Date(endDate),
+      },
     });
 
-    const pdfBuffer = await page.pdf({
-      format: "A4",
-      printBackground: true
-    });
-
-    await browser.close();
-
-    // Set response headers for PDF download
-    res.set({
-      "Content-Type": "application/pdf",
-      "Content-Disposition": "attachment; filename=report.pdf"
-    });
-
-    return res.send(pdfBuffer);
+    return res.json({ status: "ok", cases });
   } catch (error) {
-    console.error("Error generating PDF:", error);
+    console.error("Error fetching cases:", error);
     return res.status(500).json({ status: "error", error: "Internal Server Error" });
   }
 }
@@ -205,5 +193,5 @@ module.exports = {
   handleUpdateStatus,
   handleGetAllCases,
   handleCloseCase,
-  handleGeneratePDF
+  handleGetCasesByDate
 };

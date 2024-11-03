@@ -8,7 +8,7 @@ const {
   handleUpdateStatus,
   handleGetAllCases,
   handleCloseCase,
-  handleGeneratePDF
+  handleGetCasesByDate
 } = require("../controllers/index");
 
 router.get("/", handleServeHomeFile);
@@ -18,6 +18,6 @@ router.post("/api/addComplaint", handleAddComplaint);
 router.post("/api/addProcess/:caseId", handleAddProcess);
 router.post("/updateStatus/:caseId/:index", handleUpdateStatus);
 router.post("/api/closeCase/:caseId", handleCloseCase);
-router.post("/api/generatePDF", handleGeneratePDF);
+router.get("/api/getCasesByDate", handleGetCasesByDate);
 
 module.exports = router ;
